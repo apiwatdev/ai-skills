@@ -6,7 +6,8 @@ Central repository for reusable AI Coding Agent Skills and their design document
 
 | Skill | Purpose | Status | Entry point |
 | --- | --- | --- | --- |
-| `2nd-brain` | Project-based Markdown knowledge management for AI agents and developers | Implemented (repository structure verified; not yet tested with a real project) | [SKILL.md](skills/2nd-brain/SKILL.md) |
+| `2nd-brain` | Project-based Markdown knowledge management for AI agents and developers | Implemented (not yet tested with a real project) | [SKILL.md](skills/2nd-brain/SKILL.md) |
+| `pr-summary` | Draft GitHub PR / GitLab MR summaries from committed branch changes | Implemented (not yet tested with a real project) | [SKILL.md](skills/pr-summary/SKILL.md) |
 
 ## Principles
 
@@ -25,6 +26,12 @@ ai-skills/
 │   └── 2nd-brain/
 │       └── SPECIFICATION.md
 └── skills/
+    ├── pr-summary/
+    │   ├── SKILL.md
+    │   ├── README.md
+    │   └── references/
+    │       ├── git-analysis.md
+    │       └── output-contract.md
     └── 2nd-brain/
         ├── SKILL.md
         ├── references/
