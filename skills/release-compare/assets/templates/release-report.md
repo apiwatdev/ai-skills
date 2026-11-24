@@ -1,8 +1,8 @@
-# Release Impact Report — Markdown template
+# Release Comparison Report — Markdown template
 
 > Agent instructions: Replace bracketed prompts with **observed** facts only. Never publish a bracketed prompt as a fact. State "Unverified" for unresolved required input. If the target environment or deployed baseline is unknown, label every deployment-action section **PROVISIONAL — NOT EXECUTION-READY**. Do not invent file counts, script states, passed tests, or references. Remove this instruction note when drafting the report.
 
-# Release Impact Report: [FROM] → [TO]
+# Release Comparison Report: [FROM] → [TO]
 
 ## 1. Release Overview
 

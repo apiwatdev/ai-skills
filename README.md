@@ -8,7 +8,7 @@ Central repository for reusable AI Coding Agent Skills and their design document
 | --- | --- | --- | --- |
 | `2nd-brain` | Project-based Markdown knowledge management | Implemented; live project testing pending | [SKILL.md](skills/2nd-brain/SKILL.md) |
 | `pr-summary` | Draft GitHub PR / GitLab MR descriptions from committed branch differences | Implemented; live project testing pending | [SKILL.md](skills/pr-summary/SKILL.md) |
-| `release-impact` | Compare releases (tags or branches); analyze deployment, SQL, config, infrastructure, PVT and rollback impacts | Implemented; live project testing pending | [SKILL.md](skills/release-impact/SKILL.md) |
+| `release-compare` | Compare releases (tags or branches); analyze deployment, SQL, config, infrastructure, PVT and rollback impacts | Implemented; live project testing pending | [SKILL.md](skills/release-compare/SKILL.md) |
 
 ## Principles
 
@@ -16,7 +16,7 @@ Central repository for reusable AI Coding Agent Skills and their design document
 - Use progressive disclosure: load the appropriate `SKILL.md` and only necessary references/templates.
 - **No guessing:** Separate confirmed facts from potential impacts and unknowns.
 - No deployment, SQL execution, config mutation, Git branch operation or other destructive step just because a checklist contains it.
-- `release-impact` **asks before `git fetch`**, asks for the target environment/deployed baseline before producing a definitive deployment checklist, and classifies each action as Required / Review Required / Not Applicable / Unknown.
+- `release-compare` **asks before `git fetch`**, asks for the target environment/deployed baseline before producing a definitive deployment checklist, and classifies each action as Required / Review Required / Not Applicable / Unknown.
 - `2nd-brain` asks for explicit approval of all knowledge content and affected paths before writing.
 - Do not reproduce secrets or private keys in reports or knowledge.
 
@@ -37,7 +37,7 @@ ai-skills/
     │   ├── SKILL.md
     │   ├── README.md
     │   └── references/
-    └── release-impact/
+    └── release-compare/
         ├── SKILL.md
         ├── references/
         │   ├── git-comparison.md
@@ -62,7 +62,7 @@ Use 2nd-brain to find knowledge relevant to the current project's deployment.
 
 Use pr-summary to draft the MR title and description for the current branch.
 
-Use release-impact to compare v1.0.0 with v1.0.1 and prepare a Release Impact Report
+Use release-compare to compare v1.0.0 with v1.0.1 and prepare a Release Comparison Report
 and Deployment Checklist. Ask before any git fetch; verify our environment and
 currently deployed release, and do not execute any scripts.
 ```

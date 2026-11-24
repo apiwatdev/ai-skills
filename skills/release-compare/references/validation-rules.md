@@ -1,6 +1,6 @@
 # Release-impact validation and quality gates
 
-Run this review **before presenting** the final Release Impact Report and Deployment Checklist.
+Run this review **before presenting** the final Release Comparison Report and Deployment Checklist.
 
 ## Git accuracy
 

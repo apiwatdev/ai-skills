@@ -1,14 +1,14 @@
 ---
-name: release-impact
+name: release-compare
 description: Compare two Git release tags or branches and produce an evidence-based release impact report plus deployment, SQL migration, configuration, PVT, and rollback checklists. Use when asked what changed from one release/version to another, which components to deploy, which scripts need review or execution, or how to prepare a release deployment. Read-only analysis; ask before git fetch, require environment and deployed baseline for definitive actions, and never guess.
 compatibility: Requires Git and local repository access; intended for VS Code GitHub Copilot and other Agent Skills-compatible coding agents.
 metadata:
   version: "1.0.0"
 ---
 
-# Release Impact — Release comparison and deployment readiness
+# Release Compare — Release comparison and deployment readiness
 
-Analyze **one repository** between a specified **FROM** and **TO** release, each identified by a Git tag or branch. Produce two deliverables: an **evidence-based Release Impact Report** and a **Deployment Checklist**. This Skill drafts plans; it does not execute deployments or scripts.
+Analyze **one repository** between a specified **FROM** and **TO** release, each identified by a Git tag or branch. Produce two deliverables: an **evidence-based Release Comparison Report** and a **Deployment Checklist**. This Skill drafts plans; it does not execute deployments or scripts.
 
 ## Non-negotiable rules
 
