@@ -2,20 +2,23 @@
 
 Central repository for reusable AI Coding Agent Skills and their design documentation.
 
-## Skills
+## Available Skills
 
 | Skill | Purpose | Status | Entry point |
 | --- | --- | --- | --- |
-| `2nd-brain` | Project-based Markdown knowledge management for AI agents and developers | Implemented (not yet tested with a real project) | [SKILL.md](skills/2nd-brain/SKILL.md) |
-| `pr-summary` | Draft GitHub PR / GitLab MR summaries from committed branch changes | Implemented (not yet tested with a real project) | [SKILL.md](skills/pr-summary/SKILL.md) |
+| `2nd-brain` | Project-based Markdown knowledge management | Implemented; live project testing pending | [SKILL.md](skills/2nd-brain/SKILL.md) |
+| `pr-summary` | Draft GitHub PR / GitLab MR descriptions from committed branch differences | Implemented; live project testing pending | [SKILL.md](skills/pr-summary/SKILL.md) |
+| `release-impact` | Compare releases (tags or branches); analyze deployment, SQL, config, infrastructure, PVT and rollback impacts | Implemented; live project testing pending | [SKILL.md](skills/release-impact/SKILL.md) |
 
 ## Principles
 
-- Skills are reusable across projects; project knowledge belongs in each project's knowledge base.
-- Read only task-relevant documentation; detailed rules use progressive disclosure.
-- No knowledge file changes, index/links maintenance, or lifecycle status updates without explicit developer approval of full content and all affected paths.
-- Never guess missing facts, root causes, configuration, test results, verification or decisions.
-- Protect secrets; report partial writes honestly.
+- Skills are reusable across projects. A central Skill installation should **not** be confused with project-specific source code or knowledge.
+- Use progressive disclosure: load the appropriate `SKILL.md` and only necessary references/templates.
+- **No guessing:** Separate confirmed facts from potential impacts and unknowns.
+- No deployment, SQL execution, config mutation, Git branch operation or other destructive step just because a checklist contains it.
+- `release-impact` **asks before `git fetch`**, asks for the target environment/deployed baseline before producing a definitive deployment checklist, and classifies each action as Required / Review Required / Not Applicable / Unknown.
+- `2nd-brain` asks for explicit approval of all knowledge content and affected paths before writing.
+- Do not reproduce secrets or private keys in reports or knowledge.
 
 ## Repository Structure
 
@@ -26,44 +29,44 @@ ai-skills/
 │   └── 2nd-brain/
 │       └── SPECIFICATION.md
 └── skills/
+    ├── 2nd-brain/
+    │   ├── SKILL.md
+    │   ├── references/
+    │   └── assets/templates/
     ├── pr-summary/
     │   ├── SKILL.md
     │   ├── README.md
     │   └── references/
-    │       ├── git-analysis.md
-    │       └── output-contract.md
-    └── 2nd-brain/
+    └── release-impact/
         ├── SKILL.md
         ├── references/
-        │   ├── classification.md
-        │   ├── reading-rules.md
-        │   ├── writing-rules.md
-        │   ├── lifecycle.md
-        │   ├── metadata-schema.md
+        │   ├── git-comparison.md
+        │   ├── impact-analysis.md
+        │   ├── database-migration.md
+        │   ├── deployment-rules.md
         │   └── validation-rules.md
         └── assets/
             └── templates/
-                ├── architecture.md
-                ├── decision.md
-                ├── development.md
-                ├── operation.md
-                ├── troubleshooting.md
-                └── reference.md
+                ├── release-report.md
+                └── deployment-checklist.md
 ```
 
-## Usage
+## Use in VS Code + GitHub Copilot
 
-Copy or install the entire `skills/2nd-brain/` folder into a supported coding agent's skills directory. Keep the `references/` and `assets/templates/` folders beside `SKILL.md`.
+Install or configure the **entire `skills/` directory** in your agent's Skill search locations; keep the `references/` and `assets/templates/` folders next to each `SKILL.md`. For a repository-local installation, a supported location is `.github/skills/<skill-name>/SKILL.md`.
 
-Example prompt:
+Example prompts:
 
 ```text
-Use 2nd-brain to find the current project's deployment knowledge.
-Read only relevant verified documentation and warn if knowledge is draft or outdated.
+Use 2nd-brain to find knowledge relevant to the current project's deployment.
+
+Use pr-summary to draft the MR title and description for the current branch.
+
+Use release-impact to compare v1.0.0 with v1.0.1 and prepare a Release Impact Report
+and Deployment Checklist. Ask before any git fetch; verify our environment and
+currently deployed release, and do not execute any scripts.
 ```
 
-For a write operation, the Skill must present the complete proposed content and affected-file list and request developer approval before changing any files.
+**Design baseline:** [2nd-brain specification](docs/2nd-brain/SPECIFICATION.md).
 
-**Design baseline:** [2nd-brain Final Specification](docs/2nd-brain/SPECIFICATION.md).
-
-**Note:** Installation/version distribution, project knowledge-root configuration, and live acceptance testing are separate follow-up work.
+**Status:** File structure is in GitHub. Installation and acceptance tests in a real project/environment have not yet been performed.
